@@ -12,15 +12,15 @@ const config = {
     side:100,
     gap:25
 }
-var taken=[]
+var taken=[{x:'',y:''}]
 //START
 sq = rc.rectangle(config.x,config.y,config.side,config.side,{fill:'red',roughness:0})
     svg.appendChild(sq)
-    let cord = {}
-    cord[0] = config.x
-    cord[1] = config.y
-    taken.push(cord)
-    console.log(taken)
+    // let cord = {}
+    // cord[0] = config.x
+    // cord[1] = config.y
+    // taken.push(cord)
+    // console.log(taken)
 
 
 //MOVE
@@ -56,6 +56,7 @@ left.addEventListener('click',()=>{
     addSquare('left')
 })
 right.addEventListener('click',()=>{
+    
     let cord = {}
     cord[0] = config.x+config.side+config.gap
     cord[1] = config.y
@@ -79,16 +80,41 @@ function addSquare(facing){
 function addLine(facing){
     if(facing=='up'){
         x1=config.x+config.side/2
-        y1=config.y-config.side
-        x2=config.x+config.side/2
-        y2=config.y-config.gap-config.side
-    }
-    if(facing='down'){
-        x1=config.x+config.side/2
         y1=config.y+config.side
         x2=config.x+config.side/2
         y2=config.y+config.gap+config.side
     }
-    line = rc.line(x1,y1,x2,y2,{stroke:'white'})
+    if(facing=='down'){
+        x1=config.x+config.side/2
+        y1=config.y
+        x2=config.x+config.side/2
+        y2=config.y-config.gap
+    }
+    if(facing=='left'){
+        x1=config.x+config.side
+        y1=config.y+config.side/2
+        x2=config.x+config.gap+config.side
+        y2=config.y+config.side/2
+    }
+    if(facing=='right'){
+        x1=config.x
+        y1=config.y+config.side/2
+        x2=config.x-config.gap
+        y2=config.y+config.side/2
+    }
+    line = rc.line(x1,y1,x2,y2,{stroke:'white',roughness:0})
     svg.appendChild(line)
+    
+}
+
+function checkSurround(){
+    for(let i=0;i<taken.length;i++){
+        if(config.x==taken[i][0]&&config.y==taken[i][1]){  t=1;console.log('test')}
+        else{
+            t=0
+            console.log('nie')
+        }
+    }
+    if(t==1) return true
+    else return false
 }
