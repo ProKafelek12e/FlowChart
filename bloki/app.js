@@ -36,6 +36,7 @@ up.addEventListener('click',()=>{
         config.y=cord[1]
         console.log(taken)
         addSquare('up')
+        arrows()
     }
 })
 down.addEventListener('click',()=>{
@@ -50,6 +51,7 @@ down.addEventListener('click',()=>{
         config.y=cord[1]
         console.log(taken)
         addSquare('down')
+        arrows()
     }
 })
 left.addEventListener('click',()=>{
@@ -64,6 +66,7 @@ left.addEventListener('click',()=>{
         config.y=cord[1]
         console.log(taken)
         addSquare('left')
+        arrows()
     }
 })
 right.addEventListener('click',()=>{
@@ -78,6 +81,7 @@ right.addEventListener('click',()=>{
         config.y=cord[1]
         console.log(taken)
         addSquare('right')
+        arrows()
     }
 })
 
@@ -131,4 +135,15 @@ function checkTaken(x,y){
     }
     if(t==1) return true
     else return false
+}
+
+function arrows(){
+    if(checkTaken(config.x,config.y-config.side-config.gap)==true) up.classList.add('disabled')
+    else up.classList.remove('disabled')
+    if(checkTaken(config.x,config.y+config.side+config.gap)==true) down.classList.add('disabled')
+    else down.classList.remove('dsiabled')
+    if(checkTaken(config.x-config.side-config.gap,config.y)==true) left.classList.add('disabled')
+    else left.classList.remove('disabled')
+    if(checkTaken(config.x+config.side+config.gap,config.y)==true) right.classList.add('disabled')
+    else right.classList.remove('disabled')
 }
