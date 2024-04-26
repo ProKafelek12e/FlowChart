@@ -141,7 +141,7 @@ function arrows(){
     if(checkTaken(config.x,config.y-config.side-config.gap)==true) up.classList.add('disabled')
     else up.classList.remove('disabled')
     if(checkTaken(config.x,config.y+config.side+config.gap)==true) down.classList.add('disabled')
-    else down.classList.remove('dsiabled')
+    else down.classList.remove('disabled')
     if(checkTaken(config.x-config.side-config.gap,config.y)==true) left.classList.add('disabled')
     else left.classList.remove('disabled')
     if(checkTaken(config.x+config.side+config.gap,config.y)==true) right.classList.add('disabled')
