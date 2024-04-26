@@ -12,15 +12,15 @@ const config = {
     side:100,
     gap:25
 }
-var taken=[{x:'',y:''}]
+var taken=[]
 //START
 sq = rc.rectangle(config.x,config.y,config.side,config.side,{fill:'red',roughness:0})
     svg.appendChild(sq)
-    // let cord = {}
-    // cord[0] = config.x
-    // cord[1] = config.y
-    // taken.push(cord)
-    // console.log(taken)
+    let cord = {}
+    cord[0] = config.x
+    cord[1] = config.y
+    taken.push(cord)
+    console.log(taken)
 
 
 //MOVE
