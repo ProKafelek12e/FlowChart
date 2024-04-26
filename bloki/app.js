@@ -26,45 +26,59 @@ sq = rc.rectangle(config.x,config.y,config.side,config.side,{fill:'red',roughnes
 //MOVE
 
 up.addEventListener('click',()=>{
-    let cord = {}
-    cord[0] = config.x
-    cord[1] = config.y-config.side-config.gap
-    taken.push(cord)
-    config.x=cord[0]
-    config.y=cord[1]
-    console.log(taken)
-    addSquare('up')
+    if(checkTaken(config.x,config.y-config.side-config.gap)==true){}
+    else{
+        let cord = {}
+        cord[0] = config.x
+        cord[1] = config.y-config.side-config.gap
+        taken.push(cord)
+        config.x=cord[0]
+        config.y=cord[1]
+        console.log(taken)
+        addSquare('up')
+    }
 })
 down.addEventListener('click',()=>{
-    let cord = {}
-    cord[0] = config.x
-    cord[1] = config.y+config.side+config.gap
-    taken.push(cord)
-    config.x=cord[0]
-    config.y=cord[1]
-    console.log(taken)
-    addSquare('down')
+    if(checkTaken(config.x,config.y+config.side+config.gap)==true){}
+    else{
+
+        let cord = {}
+        cord[0] = config.x
+        cord[1] = config.y+config.side+config.gap
+        taken.push(cord)
+        config.x=cord[0]
+        config.y=cord[1]
+        console.log(taken)
+        addSquare('down')
+    }
 })
 left.addEventListener('click',()=>{
-    let cord = {}
-    cord[0] = config.x-config.side-config.gap
-    cord[1] = config.y
-    taken.push(cord)
-    config.x=cord[0]
-    config.y=cord[1]
-    console.log(taken)
-    addSquare('left')
+    if(checkTaken(config.x-config.side-config.gap,config.y)==true){}
+    else{
+
+        let cord = {}
+        cord[0] = config.x-config.side-config.gap
+        cord[1] = config.y
+        taken.push(cord)
+        config.x=cord[0]
+        config.y=cord[1]
+        console.log(taken)
+        addSquare('left')
+    }
 })
 right.addEventListener('click',()=>{
-    
-    let cord = {}
-    cord[0] = config.x+config.side+config.gap
-    cord[1] = config.y
-    taken.push(cord)
-    config.x=cord[0]
-    config.y=cord[1]
-    console.log(taken)
-    addSquare('right')
+    if(checkTaken(config.x+config.side+config.gap,config.y)==true){}
+    else{
+
+        let cord = {}
+        cord[0] = config.x+config.side+config.gap
+        cord[1] = config.y
+        taken.push(cord)
+        config.x=cord[0]
+        config.y=cord[1]
+        console.log(taken)
+        addSquare('right')
+    }
 })
 
 
@@ -107,11 +121,11 @@ function addLine(facing){
     
 }
 
-function checkSurround(){
+function checkTaken(x,y){
+    t=0
     for(let i=0;i<taken.length;i++){
-        if(config.x==taken[i][0]&&config.y==taken[i][1]){  t=1;console.log('test')}
+        if(x==taken[i][0]&&y==taken[i][1]){  t=1;console.log('test')}
         else{
-            t=0
             console.log('nie')
         }
     }
