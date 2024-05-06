@@ -1,4 +1,18 @@
+body{
+    margin:0;
+}
 #svg{
     height: 100vh;
     width: 100%;
+}
+
+.values{
+    position: absolute;
+    top: 500px;
+    left: 20px;
+    font-size: 200%; 
+}
+.percent{
+    position:absolute;
+    left:20px;
 }
